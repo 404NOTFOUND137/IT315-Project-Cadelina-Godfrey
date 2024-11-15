@@ -27,12 +27,17 @@
                 ?>
                 <tr>
                     <th>Task</th>
+                    <th>Action</th>
                 </tr>
                 <?php
                     if (mysqli_num_rows($Result) > 0) {
                         while($Row = mysqli_fetch_assoc($Result)) {
                             echo "<tr>";
+                                $PK_ID = $Row['id'];
                                 echo "<td class='row_task'>" . htmlspecialchars($Row['task']) . "</td>";
+                                echo "<td class='row_action'>
+                                        <a class='Update' href='edit_task.php?id=$PK_ID'>Update</a>
+                                    </td>";
                             echo "</tr>";
                         }
                     }
@@ -52,6 +57,20 @@
                     } elseif ($_GET['addtask'] == 'not') {
                         echo "<script>
                                 alert('Error: Could not add New Task.');
+                                window.history.replaceState({}, document.title, window.location.pathname);
+                            </script>";
+                    }
+                }
+
+                if (isset($_GET['update'])) {
+                    if ($_GET['update'] == 'ok') {
+                        echo "<script>
+                                alert('Task Updated Successfully.');
+                                window.history.replaceState({}, document.title, window.location.pathname);
+                            </script>";
+                    } elseif ($_GET['update'] == 'not') {
+                        echo "<script>
+                                alert('Error: Task could not be Updated.');
                                 window.history.replaceState({}, document.title, window.location.pathname);
                             </script>";
                     }
