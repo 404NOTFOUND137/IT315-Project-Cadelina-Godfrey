@@ -19,6 +19,29 @@
                 </form>
             </div>
 
+            <table>
+                <?php
+                    $MyConnection = mysqli_connect($Host, $User, $Pass, $DBName);
+                    $SelectData = "SELECT id, task FROM $TBName";
+                    $Result = mysqli_query($MyConnection, $SelectData);
+                ?>
+                <tr>
+                    <th>Task</th>
+                </tr>
+                <?php
+                    if (mysqli_num_rows($Result) > 0) {
+                        while($Row = mysqli_fetch_assoc($Result)) {
+                            echo "<tr>";
+                                echo "<td class='row_task'>" . htmlspecialchars($Row['task']) . "</td>";
+                            echo "</tr>";
+                        }
+                    }
+                    else {
+                        echo "<tr><td>No Tasks Found.</td></tr>";
+                    }
+                ?>
+            </table>
+
             <?php
                 if (isset($_GET['addtask'])) {
                     if ($_GET['addtask'] == 'ok') {
