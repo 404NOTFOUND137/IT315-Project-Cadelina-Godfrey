@@ -20,6 +20,53 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Update Task</title>
+        <style>
+            * {
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: 100%;
+                margin: 0px;
+                padding: 0px;
+            }
+            .Form {
+                border: 1px solid black;
+                width: 1188px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 10px;
+                padding-top: 10px;
+                background-color: #f2f2f2;
+            }
+            .Label {
+                font-size: 120%;
+            }
+            .Task {
+                width: 1173px;
+                margin-top: 5px;
+                margin-bottom: 10px;
+            }
+            .Submit {
+                font-size: 70%;
+                padding: 5px 20px;
+                margin-bottom: 10px;
+                background-color: skyblue;
+                border: 1px solid black;
+            }
+            .Submit:hover {
+                color: red;
+            }
+            .Cancel {
+                font-size: 70%;
+                padding: 5px 20px;
+                margin-bottom: 10px;
+                background-color: skyblue;
+                border: 1px solid black;
+                text-decoration: none;
+                color: black;
+            }
+            .Cancel:hover {
+                color: red;
+            }
+        </style>
     </head>
     <body>
         <div class="Form">
